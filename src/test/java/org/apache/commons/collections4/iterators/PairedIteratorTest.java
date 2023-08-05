@@ -18,19 +18,25 @@ package org.apache.commons.collections4.iterators;
 
 import org.apache.commons.collections4.IteratorUtils;
 import org.apache.commons.collections4.iterators.PairedIterator.PairedItem;
+import org.junit.jupiter.api.BeforeEach;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 /** Unit test suite for {@link PairedIterator}. */
 public final class PairedIteratorTest
     extends AbstractIteratorTest<PairedItem<String, Integer>> {
 
-    public PairedIteratorTest(String testName) {
-        super(testName);
+    public PairedIteratorTest() {
+        super(PairedIteratorTest.class.getName());
     }
 
     private ArrayList<String> smallStringsList;
@@ -41,16 +47,15 @@ public final class PairedIteratorTest
     private static final int SMALL_LIST_SIZE = 20;
     private static final int LARGE_LIST_SIZE = 40;
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @BeforeEach
+    public void setUp() throws Exception {
 
         smallStringsList = new ArrayList<>();
         largeStringsList = new ArrayList<>();
         smallIntsList = new ArrayList<>();
         largeIntsList = new ArrayList<>();
 
-        Random random = new Random();
+        Random random = ThreadLocalRandom.current();
 
         for (int i = 0; i < SMALL_LIST_SIZE; i++) {
             smallIntsList.add(random.nextInt());

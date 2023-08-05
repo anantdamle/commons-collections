@@ -55,6 +55,7 @@ import org.apache.commons.collections4.iterators.EmptyOrderedMapIterator;
 import org.apache.commons.collections4.iterators.EnumerationIterator;
 import org.apache.commons.collections4.iterators.NodeListIterator;
 import org.apache.commons.collections4.iterators.ObjectArrayIterator;
+import org.apache.commons.collections4.iterators.PairedIterator;
 import org.apache.commons.collections4.iterators.ZippingIterator;
 import org.apache.commons.collections4.map.EntrySetToMapIteratorAdapter;
 import org.junit.jupiter.api.BeforeEach;
